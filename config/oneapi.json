@@ -1,0 +1,582 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "Ebbinghaus",
+    "description": "",
+    "version": "1.0.0"
+  },
+  "tags": [
+    {
+      "name": "api"
+    },
+    {
+      "name": "api/library"
+    }
+  ],
+  "paths": {
+    "/api/library": {
+      "get": {
+        "summary": "条件查询",
+        "x-apifox-folder": "api/library",
+        "x-apifox-status": "developing",
+        "deprecated": false,
+        "description": "",
+        "operationId": "selectLibrary",
+        "tags": [
+          "api/library"
+        ],
+        "parameters": [
+          {
+            "name": "page",
+            "in": "query",
+            "description": "页码",
+            "required": true,
+            "example": "1",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "size",
+            "in": "query",
+            "description": "每页数量",
+            "required": true,
+            "example": "10",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "id",
+            "in": "query",
+            "description": "ID",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "libraryName",
+            "in": "query",
+            "description": "名称",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "libraryDescription",
+            "in": "query",
+            "description": "描述",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "libraryParentId",
+            "in": "query",
+            "description": "父级ID",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "libraryOwnerId",
+            "in": "query",
+            "description": "所属用户ID",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Page"
+                },
+                "examples": {
+                  "1": {
+                    "summary": "成功示例 ",
+                    "value": {
+                      "content": [
+                        {
+                          "id": "57b5622c-81c3-49a2-935a-1b73c200da30",
+                          "createDate": "1990-11-28 18:43:27",
+                          "updateDate": "1989-09-11 15:48:27",
+                          "libraryName": "管历属说际能",
+                          "libraryDescription": "清细增响比人立装白件选压。约十关往离通单增在持际技复。质性才金南打完识石万水克组但。行代研完技白果果样完需需全号半管低。石厂北都级群己火专身问才八定标速。",
+                          "libraryParentId": "026a0e3c-dc45-444e-9ffd-424cb6fe48a5",
+                          "libraryOwnerId": "c5DfCAb8-bdF3-fBD1-2F4B-CCAECcec0ec0"
+                        },
+                        {
+                          "id": "78ba4aed-3c9e-471a-b5de-ae721aaad9b9",
+                          "createDate": "2019-05-07 16:13:28",
+                          "updateDate": "1979-12-23 23:40:50",
+                          "libraryName": "象写运装复头",
+                          "libraryDescription": "她自正区铁非细发办济细重产五利要采。研线权准装多业什使思取准非做正一委下。接派路命划角决没各件论示气始些发区。离书色然万热何车族总听较指。还办流道众总科光立根养院平正什前问毛。运化广增光器劳西想种他商照才队技。",
+                          "libraryParentId": "026a0e3c-dc45-444e-9ffd-424cb6fe48a5",
+                          "libraryOwnerId": "c5DfCAb8-bdF3-fBD1-2F4B-CCAECcec0ec0"
+                        },
+                        {
+                          "id": "7b38b143-ac1e-4a98-9261-a2a820481723",
+                          "createDate": "1988-12-05 19:11:10",
+                          "updateDate": "2006-12-10 22:00:08",
+                          "libraryName": "四方各东红",
+                          "libraryDescription": "别式们代习速区拉看保品品具眼给土。结者各状就文角正文一为水上低。节立程在派金南月同支指下六实美。改矿只话西改以结连们强四体级接长阶。求新习学社专比半在八候数。白易车新传主写来程认七表子。",
+                          "libraryParentId": "026a0e3c-dc45-444e-9ffd-424cb6fe48a5",
+                          "libraryOwnerId": "c5DfCAb8-bdF3-fBD1-2F4B-CCAECcec0ec0"
+                        }
+                      ],
+                      "pageable": {
+                        "sort": {
+                          "empty": true,
+                          "unsorted": true,
+                          "sorted": false
+                        },
+                        "offset": 0,
+                        "pageSize": 10,
+                        "pageNumber": 0,
+                        "unpaged": false,
+                        "paged": true
+                      },
+                      "last": true,
+                      "totalPages": 1,
+                      "totalElements": 3,
+                      "size": 10,
+                      "number": 0,
+                      "first": true,
+                      "sort": {
+                        "empty": true,
+                        "unsorted": true,
+                        "sorted": false
+                      },
+                      "numberOfElements": 3,
+                      "empty": false
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "summary": "批量删除",
+        "x-apifox-folder": "api/library",
+        "x-apifox-status": "developing",
+        "deprecated": false,
+        "description": "",
+        "operationId": "deleteLibrary",
+        "tags": [
+          "api/library"
+        ],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "examples": {}
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "summary": "新增",
+        "x-apifox-folder": "api/library",
+        "x-apifox-status": "developing",
+        "deprecated": false,
+        "description": "",
+        "operationId": "insertLibrary",
+        "tags": [
+          "api/library"
+        ],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LibraryRequestBody"
+              },
+              "example": {
+                "createDate": "2013-02-24 17:59:44",
+                "libraryName": "王社社提清入",
+                "updateDate": "1997-11-05 21:29:29",
+                "libraryDescription": "直体看新容定物江着生张则委即器基。南比空记易江际始断问样划改样低。手空物象压机易话话离济以等众过。面给定理音被她却感治价划以干白。用具件记斯技加规须关四满。江化育例近给公意整关系立任时上。",
+                "libraryParentId": "e8AfCA1A-42B1-e51B-8c7f-4982fC14D8bd",
+                "libraryOwnerId": "5bAAAba7-12e1-f2d6-658d-5683B3FAC121"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Library"
+                },
+                "examples": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/library/{id}": {
+      "get": {
+        "summary": "查询",
+        "x-apifox-folder": "api/library",
+        "x-apifox-status": "developing",
+        "deprecated": false,
+        "description": "",
+        "operationId": "selectLibraryById",
+        "tags": [
+          "api/library"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "example": "",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "examples": {}
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "summary": "更新",
+        "x-apifox-folder": "api/library",
+        "x-apifox-status": "developing",
+        "deprecated": false,
+        "description": "",
+        "operationId": "updateLibrary",
+        "tags": [
+          "api/library"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "example": "",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LibraryRequestBody"
+              },
+              "example": {
+                "libraryDescription": "酸斗必或节公然华期几八斗见。影响教听海分但行中军表片没马半局。认名西过展于准者装气再子打置。么上最往空都快我作断了属任说事。只命必少光领它行该直管当油将第。",
+                "libraryParentId": "8de86178-DDd3-c16E-7756-Ab22EDDCbcd8",
+                "updateDate": "2019-09-20 22:19:56",
+                "libraryOwnerId": "412684C2-BA69-d5b7-5c14-A198f4b9B2Ee",
+                "createDate": "1976-12-29 06:48:34",
+                "libraryName": "走家业"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Library"
+                },
+                "examples": {}
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "summary": "单个删除",
+        "x-apifox-folder": "api/library",
+        "x-apifox-status": "developing",
+        "deprecated": false,
+        "description": "",
+        "operationId": "deleteLibraryById",
+        "tags": [
+          "api/library"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "example": "",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "examples": {}
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Page": {
+        "type": "object",
+        "properties": {
+          "content": {
+            "type": "array",
+            "items": {
+              "oneOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "integer"
+                },
+                {
+                  "type": "boolean"
+                },
+                {
+                  "type": "array"
+                },
+                {
+                  "type": "object"
+                },
+                {
+                  "type": "number"
+                }
+              ],
+              "nullable": true
+            }
+          },
+          "pageable": {
+            "type": "object",
+            "properties": {
+              "sort": {
+                "type": "object",
+                "properties": {
+                  "empty": {
+                    "type": "boolean"
+                  },
+                  "sorted": {
+                    "type": "boolean"
+                  },
+                  "unsorted": {
+                    "type": "boolean"
+                  }
+                },
+                "required": [
+                  "empty",
+                  "sorted",
+                  "unsorted"
+                ]
+              },
+              "offset": {
+                "type": "integer"
+              },
+              "pageSize": {
+                "type": "integer"
+              },
+              "pageNumber": {
+                "type": "integer"
+              },
+              "unpaged": {
+                "type": "boolean"
+              },
+              "paged": {
+                "type": "boolean"
+              }
+            },
+            "required": [
+              "sort",
+              "offset",
+              "pageSize",
+              "pageNumber",
+              "unpaged",
+              "paged"
+            ]
+          },
+          "last": {
+            "type": "boolean"
+          },
+          "totalElements": {
+            "type": "integer"
+          },
+          "totalPages": {
+            "type": "integer"
+          },
+          "size": {
+            "type": "integer"
+          },
+          "number": {
+            "type": "integer"
+          },
+          "sort": {
+            "type": "object",
+            "properties": {
+              "empty": {
+                "type": "boolean"
+              },
+              "sorted": {
+                "type": "boolean"
+              },
+              "unsorted": {
+                "type": "boolean"
+              }
+            },
+            "required": [
+              "empty",
+              "sorted",
+              "unsorted"
+            ]
+          },
+          "numberOfElements": {
+            "type": "integer"
+          },
+          "first": {
+            "type": "boolean"
+          },
+          "empty": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "content",
+          "pageable",
+          "last",
+          "totalElements",
+          "totalPages",
+          "size",
+          "number",
+          "sort",
+          "numberOfElements",
+          "first",
+          "empty"
+        ],
+        "x-apifox-folder": ""
+      },
+      "LibraryRequestBody": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "libraryName": {
+            "type": "string"
+          },
+          "libraryDescription": {
+            "type": "string"
+          },
+          "libraryParentId": {
+            "type": "string"
+          },
+          "libraryOwnerId": {
+            "type": "string"
+          },
+          "createDate": {
+            "type": "string"
+          },
+          "updateDate": {
+            "type": "string"
+          }
+        },
+        "x-apifox-folder": ""
+      },
+      "Library": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "libraryName": {
+            "type": "string"
+          },
+          "libraryDescription": {
+            "type": "string"
+          },
+          "libraryParentId": {
+            "type": "string"
+          },
+          "libraryOwnerId": {
+            "type": "string"
+          },
+          "createDate": {
+            "type": "string"
+          },
+          "updateDate": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "libraryName",
+          "libraryParentId",
+          "libraryOwnerId",
+          "createDate",
+          "updateDate",
+          "libraryDescription"
+        ],
+        "x-apifox-folder": ""
+      }
+    }
+  }
+}
