@@ -22,7 +22,7 @@ export default defineConfig({
   },
   layout: {
     name: 'Ebbinghaus',
-    siderWidth: 208,
+    sideWidth: 208,
     ...layoutSettings,
   },
   hash: true,
