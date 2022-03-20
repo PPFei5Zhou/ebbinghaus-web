@@ -23,6 +23,9 @@ export default defineConfig({
   layout: {
     name: 'Ebbinghaus',
     sideWidth: 208,
+    contentStyle: {
+      background: 'white'
+    },
     ...layoutSettings,
   },
   hash: true,
