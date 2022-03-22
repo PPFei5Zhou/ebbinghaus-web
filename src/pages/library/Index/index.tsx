@@ -1,31 +1,58 @@
-import { useRequest } from 'umi';
+import {useRequest} from 'umi';
 import React from 'react';
-import { Row } from 'antd';
-import { selectLibrary } from '@/services/ebbinghaus-web/library';
-import LibraryItem from './components/LibraryItem';
+import {selectLibrary} from '@/services/ebbinghaus-web/library';
+import Header from './components/Header';
+import {Table} from "antd";
+
+const columns = [
+  {
+    title: '名称',
+    dataIndex: 'libraryName',
+    key: 'libraryName'
+  },
+  {
+    title: '更新时间',
+    dataIndex: 'updateDate',
+    key: 'updateDate'
+  }
+]
 
 const Index: React.FC = () => {
-  const { data } = useRequest(() => selectLibrary({
-    page: '1', size: '10',
-    libraryParentId: '026a0e3c-dc45-444e-9ffd-424cb6fe48a5',
-    libraryOwnerId: 'c5DfCAb8-bdF3-fBD1-2F4B-CCAECcec0ec0',
-  }));
+  const {run, loading, data, pagination} = useRequest<API.LibraryPaginateResponseBody>(
+    ({current, pageSize, filters}) => {
+      return selectLibrary({
+        page: current,
+        size: pageSize,
+        ...filters
+      })
+    }, {
+      paginated: true
+    });
 
-  if (data) {
-    let page = data as API.Page;
-
-    if (!page.empty) {
-      return (<LibraryItem list={page.content as Array<API.Library>} />)
-    }
-
-    return (
-      <Row>
-
-      </Row>
-    );
+  const onSearch = (value: String) => {
+    run({
+      current: 1,
+      pageSize: pagination.pageSize,
+      filters: {
+        libraryName: value
+      }});
   }
 
-  return <div>Fuck</div>;
+  return (
+    <>
+      <Header onSearch={onSearch}/>
+      <Table
+        rowKey={'id'}
+        columns={columns}
+        dataSource={data?.list as any[]}
+        pagination={pagination}
+        loading={loading}
+        style={{
+          margin: "0 20px"
+        }}
+      />
+    </>
+  );
 };
 
 export default Index;

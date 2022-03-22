@@ -8,7 +8,7 @@ export async function selectLibrary(
   params: API.selectLibraryParams,
   options?: { [key: string]: any },
 ) {
-  return request<API.Page>('/api/library', {
+  return request<API.LibraryPaginateResponseBody>('/api/library', {
     method: 'GET',
     params: {
       ...params,

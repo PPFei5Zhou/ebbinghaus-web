@@ -1,33 +1,9 @@
 declare namespace API {
-  type Page = {
-    content: (string | number | boolean | any[] | Record<string, any> | number)[];
-    pageable: {
-      sort: { empty?: boolean; sorted?: boolean; unsorted?: boolean };
-      offset?: number;
-      pageSize?: number;
-      pageNumber?: number;
-      unpaged?: boolean;
-      paged?: boolean;
-    };
-    last: boolean;
-    totalElements: number;
-    totalPages: number;
-    size: number;
-    number: number;
-    sort: { empty?: boolean; sorted?: boolean; unsorted?: boolean };
-    numberOfElements: number;
-    first: boolean;
-    empty: boolean;
-  };
-
-  type LibraryRequestBody = {
-    id?: string;
-    libraryName?: string;
-    libraryDescription?: string;
-    libraryParentId?: string;
-    libraryOwnerId?: string;
-    createDate?: string;
-    updateDate?: string;
+  type LibraryPaginateResponseBody = {
+    current: number;
+    pageSize: number;
+    total: number;
+    list: Library[];
   };
 
   type Library = {
@@ -38,6 +14,16 @@ declare namespace API {
     libraryOwnerId: string;
     createDate: string;
     updateDate: string;
+  };
+
+  type LibraryRequestBody = {
+    id?: string;
+    libraryName?: string;
+    libraryDescription?: string;
+    libraryParentId?: string;
+    libraryOwnerId?: string;
+    createDate?: string;
+    updateDate?: string;
   };
 
   type selectLibraryParams = {
