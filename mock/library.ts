@@ -24,10 +24,10 @@ export default {
     });
   },
   'DELETE /api/library/:id': (req: Request, res: Response) => {
-    res.status(200);
+    res.status(200).send();
   },
   'DELETE /api/library': (req: Request, res: Response) => {
-    res.status(200);
+    res.status(200).send();
   },
   'GET /api/library/:id': (req: Request, res: Response) => {
     res.status(200).send({
