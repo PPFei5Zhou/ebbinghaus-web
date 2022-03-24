@@ -9,6 +9,7 @@ export const layout = ({
   initialState: { settings?: LayoutSettings };
 }): BasicLayoutProps => {
   return {
+    headerRender: false,
     ...initialState?.settings,
   };
 };
