@@ -7,6 +7,6 @@ const Index: React.FC = () => {
       <h1>Page index</h1>
     </Card>
   );
-}
+};
 
 export default Index;

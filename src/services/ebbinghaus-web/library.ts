@@ -33,7 +33,10 @@ export async function insertLibrary(
 }
 
 /** 批量删除 DELETE /api/library */
-export async function deleteLibrary(body: string[], options?: { [key: string]: any }) {
+export async function deleteLibrary(
+  body: string[],
+  options?: { [key: string]: any },
+) {
   return request<Record<string, any>>('/api/library', {
     method: 'DELETE',
     headers: {

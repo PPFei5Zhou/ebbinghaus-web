@@ -1,22 +1,21 @@
-import React from "react";
-import { Form, Input, Button } from 'antd';
+import React from 'react';
+import { useParams, useRequest } from 'umi';
+import { Descriptions } from 'antd';
+import { selectLibraryById } from '@/services/ebbinghaus-web/library';
 
 const Index: React.FC = () => {
-    return (
-        <Form>
-            <Form.Item name="libraryName" label="名称" rules={[{ required: true }]}>
-                <Input />
-            </Form.Item>
-            <Form.Item name="libraryDescription" label="描述">
-                <Input />
-            </Form.Item>
-            <Form.Item name="libraryDescription" label="描述">
-                <Button type="primary" htmlType="submit">
-                    新建
-                </Button>
-            </Form.Item>
-        </Form>
-    );
-}
+  const params = useParams();
+  let library = params as unknown as API.Library;
+  const { data } = useRequest(() => selectLibraryById({ id: library.id }));
+  return (
+    <Descriptions title={data?.libraryName} layout="vertical" column={2}>
+      <Descriptions.Item label="描述" span={3}>
+        {data?.libraryDescription}
+      </Descriptions.Item>
+      <Descriptions.Item label="创建日期">{data?.createDate}</Descriptions.Item>
+      <Descriptions.Item label="更新日期">{data?.updateDate}</Descriptions.Item>
+    </Descriptions>
+  );
+};
 
 export default Index;

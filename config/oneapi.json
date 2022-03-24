@@ -22,9 +22,7 @@
         "deprecated": false,
         "description": "",
         "operationId": "selectLibrary",
-        "tags": [
-          "api/library"
-        ],
+        "tags": ["api/library"],
         "parameters": [
           {
             "name": "page",
@@ -113,9 +111,7 @@
         "deprecated": false,
         "description": "",
         "operationId": "deleteLibrary",
-        "tags": [
-          "api/library"
-        ],
+        "tags": ["api/library"],
         "parameters": [],
         "requestBody": {
           "content": {
@@ -151,9 +147,7 @@
         "deprecated": false,
         "description": "",
         "operationId": "insertLibrary",
-        "tags": [
-          "api/library"
-        ],
+        "tags": ["api/library"],
         "parameters": [],
         "requestBody": {
           "content": {
@@ -195,9 +189,7 @@
         "deprecated": false,
         "description": "",
         "operationId": "selectLibraryById",
-        "tags": [
-          "api/library"
-        ],
+        "tags": ["api/library"],
         "parameters": [
           {
             "name": "id",
@@ -232,9 +224,7 @@
         "deprecated": false,
         "description": "",
         "operationId": "updateLibrary",
-        "tags": [
-          "api/library"
-        ],
+        "tags": ["api/library"],
         "parameters": [
           {
             "name": "id",
@@ -285,9 +275,7 @@
         "deprecated": false,
         "description": "",
         "operationId": "deleteLibraryById",
-        "tags": [
-          "api/library"
-        ],
+        "tags": ["api/library"],
         "parameters": [
           {
             "name": "id",
@@ -338,12 +326,7 @@
             }
           }
         },
-        "required": [
-          "current",
-          "pageSize",
-          "total",
-          "list"
-        ],
+        "required": ["current", "pageSize", "total", "list"],
         "x-apifox-folder": ""
       },
       "Library": {

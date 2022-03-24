@@ -1,10 +1,14 @@
 import {
   BasicLayoutProps,
-  Settings as LayoutSettings
+  Settings as LayoutSettings,
 } from '@ant-design/pro-layout';
 
-export const layout = ({initialState}: { initialState: { settings?: LayoutSettings; } }): BasicLayoutProps => {
+export const layout = ({
+  initialState,
+}: {
+  initialState: { settings?: LayoutSettings };
+}): BasicLayoutProps => {
   return {
-    ...initialState?.settings
+    ...initialState?.settings,
   };
-}
+};

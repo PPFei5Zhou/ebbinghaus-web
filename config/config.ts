@@ -22,12 +22,13 @@ export default defineConfig({
   },
   layout: {
     name: 'Ebbinghaus',
+    title: 'Ebbinghaus',
     sideWidth: 208,
     contentStyle: {
-      background: 'white'
+      background: 'white',
     },
     ...layoutSettings,
   },
   hash: true,
-  routes
-})
+  routes,
+});

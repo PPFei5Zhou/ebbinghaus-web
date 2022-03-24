@@ -4,7 +4,12 @@ export default [
     name: '知识库',
     path: '/library',
     exact: true,
-    component: "@/pages/library/Index",
-    icon: 'BookOutlined'
-  }
-]
+    component: '@/pages/library/Index',
+    icon: 'BookOutlined',
+  },
+  {
+    path: '/library/info/:id',
+    exact: true,
+    component: '@/pages/library/Info',
+  },
+];
