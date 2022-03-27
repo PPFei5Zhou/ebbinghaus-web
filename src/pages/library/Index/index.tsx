@@ -2,7 +2,7 @@ import { Link, useRequest } from 'umi';
 import { Table } from 'antd';
 import React from 'react';
 import { selectLibrary } from '@/services/ebbinghaus-web/library';
-import Header from './components/Header';
+import CustomHeader from '@/pages/library/components/CustomHeader';
 import TableDropdownMenu from './components/TableDropdownMenu';
 
 import './index.less';
@@ -58,7 +58,7 @@ const Index: React.FC = () => {
 
   return (
     <>
-      <Header reload={reload} />
+      <CustomHeader showSearch={true} reload={reload} />
       <Table
         rowKey={'id'}
         columns={columns}
