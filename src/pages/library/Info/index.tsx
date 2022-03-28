@@ -1,12 +1,14 @@
-import { Descriptions, Tabs } from 'antd';
-import React from 'react';
+import { Button, Descriptions, Tabs } from 'antd';
+import React, { useState } from 'react';
 import { useParams, useRequest } from 'umi';
 import { selectLibraryById } from '@/services/ebbinghaus-web/library';
+import CustomDrawer from './CostumDrawer';
 import CustomHeader from '@/pages/library/components/CustomHeader';
 
 const { TabPane } = Tabs;
 
 const Index: React.FC = () => {
+  const [drawerVisible, setDrawerVisible] = useState(false);
   const params = useParams();
   let library = params as unknown as API.Library;
   const { run, data } = useRequest(() => selectLibraryById({ id: library.id }));
@@ -27,13 +29,24 @@ const Index: React.FC = () => {
     );
   };
 
+  const extra = () => {
+    return [<Button onClick={() => setDrawerVisible(true)}>新增组</Button>];
+  };
+
   return (
     <>
       <CustomHeader
         headerTitle={data?.libraryName}
         showGoBack={true}
-        reload={run}
         headerNode={description()}
+        pageHeaderExtra={extra()}
+      />
+      <CustomDrawer
+        parentId={data?.libraryParentId}
+        onClose={() => setDrawerVisible(false)}
+        onReload={() => run()}
+        title={'新增组'}
+        visible={drawerVisible}
       />
       <Tabs tabPosition={'left'}>
         <TabPane tab={'1'} key={'1'}>

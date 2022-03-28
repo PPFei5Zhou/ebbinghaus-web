@@ -1,13 +1,17 @@
 import { Link, useRequest } from 'umi';
-import { Table } from 'antd';
-import React from 'react';
+import { Button, Input, Table } from 'antd';
+import React, { useState } from 'react';
 import { selectLibrary } from '@/services/ebbinghaus-web/library';
-import CustomHeader from '@/pages/library/components/CustomHeader';
 import TableDropdownMenu from './components/TableDropdownMenu';
+import AddLibraryForm from './components/AddLibraryForm';
+import CustomHeader from '@/pages/library/components/CustomHeader';
 
 import './index.less';
 
+const { Search } = Input;
+
 const Index: React.FC = () => {
+  const [addLibraryFormVisible, setAddLibraryFormVisible] = useState(false);
   const { run, loading, data, pagination } =
     useRequest<API.LibraryPaginateResponseBody>(
       ({ current, pageSize, filters }) => {
@@ -56,9 +60,33 @@ const Index: React.FC = () => {
     }).then();
   };
 
+  const onClick = () => {
+    setAddLibraryFormVisible(true);
+  };
+
+  const extra = () => {
+    return [
+      <Button key="Create" onClick={onClick}>
+        新增知识库
+      </Button>,
+      <Search
+        key={'Search'}
+        placeholder="搜索"
+        onSearch={(value) => reload({ libraryName: value })}
+        enterButton
+        allowClear
+      />,
+    ];
+  };
+
   return (
     <>
-      <CustomHeader showSearch={true} reload={reload} />
+      <CustomHeader pageHeaderExtra={extra()} />
+      <AddLibraryForm
+        visible={addLibraryFormVisible}
+        onClose={() => setAddLibraryFormVisible(false)}
+        onReload={() => reload({})}
+      />
       <Table
         rowKey={'id'}
         columns={columns}
