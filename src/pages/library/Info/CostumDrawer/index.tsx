@@ -51,12 +51,16 @@ const CostumDrawer: React.FC<CostumDrawerProps> = (
         onFinish={onFinish}
         initialValues={{
           libraryParentId: props.parentId,
+          libraryOwnerId: 'c5DfCAb8-bdF3-fBD1-2F4B-CCAECcec0ec0',
         }}
       >
         <Form.Item name="libraryName" label="" rules={[{ required: true }]}>
           <Input.TextArea showCount maxLength={100} rows={2} />
         </Form.Item>
         <Form.Item name="libraryParentId">
+          <Input hidden={true} />
+        </Form.Item>
+        <Form.Item name="libraryOwnerId">
           <Input hidden={true} />
         </Form.Item>
       </Form>

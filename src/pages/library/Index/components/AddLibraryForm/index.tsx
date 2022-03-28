@@ -46,6 +46,10 @@ const AddLibraryForm: React.FC<AddLibraryFormProps> = (
       width={540}
     >
       <Form
+        initialValues={{
+          libraryParentId: '-',
+          libraryOwnerId: 'c5DfCAb8-bdF3-fBD1-2F4B-CCAECcec0ec0',
+        }}
         layout={'vertical'}
         form={form}
         onFinish={onFinish}
@@ -56,6 +60,12 @@ const AddLibraryForm: React.FC<AddLibraryFormProps> = (
         </Form.Item>
         <Form.Item name="libraryDescription" label="描述">
           <Input.TextArea showCount maxLength={200} rows={3} />
+        </Form.Item>
+        <Form.Item name="libraryParentId">
+          <Input hidden={true} />
+        </Form.Item>
+        <Form.Item name="libraryOwnerId">
+          <Input hidden={true} />
         </Form.Item>
       </Form>
     </Drawer>

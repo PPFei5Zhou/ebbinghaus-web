@@ -42,7 +42,7 @@ const Index: React.FC = () => {
         pageHeaderExtra={extra()}
       />
       <CustomDrawer
-        parentId={data?.libraryParentId}
+        parentId={data?.id}
         onClose={() => setDrawerVisible(false)}
         onReload={() => run()}
         title={'新增组'}
