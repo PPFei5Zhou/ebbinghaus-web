@@ -2,7 +2,7 @@ import { Button, Descriptions, Tabs } from 'antd';
 import React, { useState } from 'react';
 import { useParams, useRequest } from 'umi';
 import { selectLibraryById } from '@/services/ebbinghaus-web/library';
-import CustomDrawer from './CostumDrawer';
+import CustomDrawer from './CustomDrawer';
 import CustomHeader from '@/pages/library/components/CustomHeader';
 
 const { TabPane } = Tabs;
