@@ -3,6 +3,8 @@
 // API 更新时间：
 // API 唯一标识：
 import * as library from './library';
+import * as Knowledge from './Knowledge';
 export default {
   library,
+  Knowledge,
 };

@@ -1,11 +1,10 @@
-import { Button, Descriptions, Tabs } from 'antd';
+import { Button, Descriptions } from 'antd';
 import React, { useState } from 'react';
 import { useParams, useRequest } from 'umi';
 import { selectLibraryById } from '@/services/ebbinghaus-web/library';
 import CustomDrawer from './CustomDrawer';
 import CustomHeader from '@/pages/library/components/CustomHeader';
-
-const { TabPane } = Tabs;
+import CustomCollapse from '@/pages/library/Info/CustomCollapse';
 
 const Index: React.FC = () => {
   const [drawerVisible, setDrawerVisible] = useState(false);
@@ -48,20 +47,7 @@ const Index: React.FC = () => {
         title={'新增组'}
         visible={drawerVisible}
       />
-      <Tabs tabPosition={'left'}>
-        <TabPane tab={'1'} key={'1'}>
-          1
-        </TabPane>
-        <TabPane tab={'2'} key={'2'}>
-          2
-        </TabPane>
-        <TabPane tab={'3'} key={'3'}>
-          3
-        </TabPane>
-        <TabPane tab={'4'} key={'4'}>
-          4
-        </TabPane>
-      </Tabs>
+      <CustomCollapse />
     </>
   );
 };

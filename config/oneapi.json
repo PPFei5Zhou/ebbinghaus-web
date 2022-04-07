@@ -11,6 +11,9 @@
     },
     {
       "name": "api/library"
+    },
+    {
+      "name": "api/Knowledge"
     }
   ],
   "paths": {
@@ -104,42 +107,6 @@
           }
         }
       },
-      "delete": {
-        "summary": "批量删除",
-        "x-apifox-folder": "api/library",
-        "x-apifox-status": "developing",
-        "deprecated": false,
-        "description": "",
-        "operationId": "deleteLibrary",
-        "tags": ["api/library"],
-        "parameters": [],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "成功",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "type": "object",
-                  "properties": {}
-                },
-                "examples": {}
-              }
-            }
-          }
-        }
-      },
       "post": {
         "summary": "新增",
         "x-apifox-folder": "api/library",
@@ -179,17 +146,102 @@
             }
           }
         }
-      }
-    },
-    "/api/library/{id}": {
-      "get": {
-        "summary": "查询",
+      },
+      "delete": {
+        "summary": "批量删除",
         "x-apifox-folder": "api/library",
         "x-apifox-status": "developing",
         "deprecated": false,
         "description": "",
-        "operationId": "selectLibraryById",
+        "operationId": "deleteLibrary",
         "tags": ["api/library"],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "examples": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/knowledge/{id}": {
+      "put": {
+        "summary": "更新",
+        "x-apifox-folder": "api/Knowledge",
+        "x-apifox-status": "developing",
+        "deprecated": false,
+        "description": "",
+        "operationId": "updateKnowledge",
+        "tags": ["api/Knowledge"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "example": "",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/KnowledgeRequestBody"
+              },
+              "example": {
+                "cardTitle": "里导基组拉术",
+                "cardContent": "容议专那正相到求候白两何都离他做。声保之志能采具劳取系省响者数类去术。点听大完已价元发方使就九又支。光离算般清品对心法相我前图们段任往。行得红员值它利说道此识层速运论各按。学目平拉便加管些则手并回回子。安六你原火科海资往因青道同。",
+                "cardSubtitle": "分用先铁片导别",
+                "libraryId": "2AFc8eDb-6BA1-eCf9-3eB1-DB79cd0fD15F"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Knowledge"
+                },
+                "examples": {}
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "summary": "删除",
+        "x-apifox-folder": "api/Knowledge",
+        "x-apifox-status": "developing",
+        "deprecated": false,
+        "description": "",
+        "operationId": "deleteKnowledgeById",
+        "tags": ["api/Knowledge"],
         "parameters": [
           {
             "name": "id",
@@ -206,7 +258,7 @@
           "200": {
             "description": "成功",
             "content": {
-              "application/json": {
+              "*/*": {
                 "schema": {
                   "type": "object",
                   "properties": {}
@@ -217,6 +269,217 @@
           }
         }
       },
+      "get": {
+        "summary": "查询",
+        "x-apifox-folder": "api/Knowledge",
+        "x-apifox-status": "developing",
+        "deprecated": false,
+        "description": "",
+        "operationId": "getKnowledgeById",
+        "tags": ["api/Knowledge"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "example": "c1fE377B-6F39-fe26-CeeD-8FBCc0D28CC7",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "examples": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/knowledge": {
+      "post": {
+        "summary": "新增",
+        "x-apifox-folder": "api/Knowledge",
+        "x-apifox-status": "developing",
+        "deprecated": false,
+        "description": "",
+        "operationId": "insertKnowledge",
+        "tags": ["api/Knowledge"],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/KnowledgeRequestBody"
+              },
+              "example": {
+                "updateDate": "1994-11-21 06:52:27",
+                "libraryId": "56EAAAf9-e4cc-9B6F-B51D-7cB2702C7FBf",
+                "title": "把就位整千",
+                "content": "示马青置支队间到济今型里于号矿者专。约育断果公放场使温必切思式照。列们展集能半第土思技海精那平有。次圆第种究拉快算场龙知置万见建农方。",
+                "subtitle": "权起他",
+                "createDate": "2020-05-31 18:19:54"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Knowledge"
+                },
+                "examples": {}
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "summary": "条件查询",
+        "x-apifox-folder": "api/Knowledge",
+        "x-apifox-status": "developing",
+        "deprecated": false,
+        "description": "",
+        "operationId": "selectKnowledge",
+        "tags": ["api/Knowledge"],
+        "parameters": [
+          {
+            "name": "page",
+            "in": "query",
+            "description": "",
+            "required": false,
+            "example": "1",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "size",
+            "in": "query",
+            "description": "",
+            "required": false,
+            "example": "10",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "id",
+            "in": "query",
+            "description": "",
+            "required": false,
+            "example": "",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "title",
+            "in": "query",
+            "description": "",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "subtitle",
+            "in": "query",
+            "description": "",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "content",
+            "in": "query",
+            "description": "",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "libraryId",
+            "in": "query",
+            "description": "",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/KnowledgePaginateResponseBody"
+                },
+                "examples": {}
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "summary": "批量删除",
+        "x-apifox-folder": "api/Knowledge",
+        "x-apifox-status": "developing",
+        "deprecated": false,
+        "description": "",
+        "operationId": "deleteKnowledge",
+        "tags": ["api/Knowledge"],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "example": [
+                "22fB4BFc-02f7-F8cc-6eCD-A35fe1CA70ea",
+                "B2e054DD-73F3-fC2D-A7df-CAEB39d3ecf0",
+                "CE13e95f-8dE4-8EeD-4613-E01dA817c822",
+                "A783dcDE-eF73-997f-D221-1e194bDA4De9"
+              ]
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "examples": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/library/{id}": {
       "put": {
         "summary": "更新",
         "x-apifox-folder": "api/library",
@@ -268,6 +531,41 @@
           }
         }
       },
+      "get": {
+        "summary": "查询",
+        "x-apifox-folder": "api/library",
+        "x-apifox-status": "developing",
+        "deprecated": false,
+        "description": "",
+        "operationId": "selectLibraryById",
+        "tags": ["api/library"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "example": "",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "examples": {}
+              }
+            }
+          }
+        }
+      },
       "delete": {
         "summary": "单个删除",
         "x-apifox-folder": "api/library",
@@ -307,7 +605,43 @@
   },
   "components": {
     "schemas": {
-      "LibraryPaginateResponseBody": {
+      "Knowledge": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          },
+          "subtitle": {
+            "type": "string"
+          },
+          "content": {
+            "type": "string"
+          },
+          "libraryId": {
+            "type": "string"
+          },
+          "createDate": {
+            "type": "string"
+          },
+          "updateDate": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "title",
+          "subtitle",
+          "content",
+          "libraryId",
+          "createDate",
+          "updateDate"
+        ],
+        "x-apifox-folder": ""
+      },
+      "KnowledgePaginateResponseBody": {
         "type": "object",
         "properties": {
           "current": {
@@ -322,11 +656,188 @@
           "list": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/Library"
+              "$ref": "#/components/schemas/Knowledge"
             }
           }
         },
         "required": ["current", "pageSize", "total", "list"],
+        "x-apifox-folder": ""
+      },
+      "KnowledgeRequestBody": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          },
+          "subtitle": {
+            "type": "string"
+          },
+          "content": {
+            "type": "string"
+          },
+          "libraryId": {
+            "type": "string"
+          },
+          "createDate": {
+            "type": "string"
+          },
+          "updateDate": {
+            "type": "string"
+          }
+        },
+        "x-apifox-folder": ""
+      },
+      "BaseRequestBody": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "ID"
+          },
+          "dataStatus": {
+            "type": "number",
+            "description": "数据状态"
+          },
+          "createDate": {
+            "type": "string",
+            "description": "创建日期"
+          },
+          "updateDate": {
+            "type": "string",
+            "description": "更新日期"
+          }
+        },
+        "required": ["id"],
+        "x-apifox-folder": ""
+      },
+      "Page": {
+        "type": "object",
+        "properties": {
+          "content": {
+            "type": "array",
+            "items": {
+              "oneOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "integer"
+                },
+                {
+                  "type": "boolean"
+                },
+                {
+                  "type": "array"
+                },
+                {
+                  "type": "object"
+                },
+                {
+                  "type": "number"
+                }
+              ],
+              "nullable": true
+            }
+          },
+          "pageable": {
+            "type": "object",
+            "properties": {
+              "sort": {
+                "type": "object",
+                "properties": {
+                  "empty": {
+                    "type": "boolean"
+                  },
+                  "sorted": {
+                    "type": "boolean"
+                  },
+                  "unsorted": {
+                    "type": "boolean"
+                  }
+                },
+                "required": ["empty", "sorted", "unsorted"]
+              },
+              "offset": {
+                "type": "integer"
+              },
+              "pageSize": {
+                "type": "integer"
+              },
+              "pageNumber": {
+                "type": "integer"
+              },
+              "unpaged": {
+                "type": "boolean"
+              },
+              "paged": {
+                "type": "boolean"
+              }
+            },
+            "required": [
+              "sort",
+              "offset",
+              "pageSize",
+              "pageNumber",
+              "unpaged",
+              "paged"
+            ]
+          },
+          "last": {
+            "type": "boolean"
+          },
+          "totalElements": {
+            "type": "integer"
+          },
+          "totalPages": {
+            "type": "integer"
+          },
+          "size": {
+            "type": "integer"
+          },
+          "number": {
+            "type": "integer"
+          },
+          "sort": {
+            "type": "object",
+            "properties": {
+              "empty": {
+                "type": "boolean"
+              },
+              "sorted": {
+                "type": "boolean"
+              },
+              "unsorted": {
+                "type": "boolean"
+              }
+            },
+            "required": ["empty", "sorted", "unsorted"]
+          },
+          "numberOfElements": {
+            "type": "integer"
+          },
+          "first": {
+            "type": "boolean"
+          },
+          "empty": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "content",
+          "pageable",
+          "last",
+          "totalElements",
+          "totalPages",
+          "size",
+          "number",
+          "sort",
+          "numberOfElements",
+          "first",
+          "empty"
+        ],
         "x-apifox-folder": ""
       },
       "Library": {
@@ -390,6 +901,28 @@
             "type": "string"
           }
         },
+        "x-apifox-folder": ""
+      },
+      "LibraryPaginateResponseBody": {
+        "type": "object",
+        "properties": {
+          "current": {
+            "type": "number"
+          },
+          "pageSize": {
+            "type": "number"
+          },
+          "total": {
+            "type": "number"
+          },
+          "list": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Library"
+            }
+          }
+        },
+        "required": ["current", "pageSize", "total", "list"],
         "x-apifox-folder": ""
       }
     }
