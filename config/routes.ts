@@ -1,15 +1,14 @@
 export default [
-  { path: '/', component: '@/pages/index' },
+  { path: '/', component: '@/layouts/BaseLayout' },
   {
-    name: '知识库',
-    path: '/library',
-    exact: true,
-    component: '@/pages/library/Index',
-    icon: 'BookOutlined',
-  },
-  {
-    path: '/library/info/:id',
-    exact: true,
-    component: '@/pages/library/Info',
+    path: '/tag/index/:id',
+    component: '@/layouts/BaseLayout', //模板
+    routes: [
+      {
+        name: '标签',
+        icon: 'TagsOutlined',
+        component: '@/pages/TagIndex',
+      },
+    ],
   },
 ];

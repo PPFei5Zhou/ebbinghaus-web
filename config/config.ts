@@ -1,7 +1,6 @@
 import { defineConfig } from 'umi';
 import { join } from 'path';
 import routes from './routes';
-import layoutSettings from './layoutSettings';
 
 export default defineConfig({
   request: {
@@ -20,15 +19,7 @@ export default defineConfig({
   dynamicImport: {
     loading: '@ant-design/pro-layout/es/PageLoading',
   },
-  layout: {
-    name: 'Ebbinghaus',
-    title: 'Ebbinghaus',
-    sideWidth: 208,
-    contentStyle: {
-      background: 'white',
-    },
-    ...layoutSettings,
-  },
+  layout: false, //关闭自带pro layout
   hash: true,
   routes,
 });
