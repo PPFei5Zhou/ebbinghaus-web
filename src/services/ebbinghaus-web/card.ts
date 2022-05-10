@@ -2,29 +2,31 @@
 /* eslint-disable */
 import { request } from 'umi';
 
-/** 查询标签 GET /api/tag/${param0} */
-export async function findTagById(
+/** findById GET /api/card/${param0} */
+export async function findCardById(
   // 叠加生成的Param类型 (非body参数swagger默认没有生成对象)
-  params: API.findTagByIdParams,
+  params: API.findCardByIdParams,
   options?: { [key: string]: any },
 ) {
   const { id: param0, ...queryParams } = params;
-  return request<API.TagResponse>(`/api/tag/${param0}`, {
+  return request<
+    string | number | boolean | any[] | Record<string, any> | number
+  >(`/api/card/${param0}`, {
     method: 'GET',
     params: { ...queryParams },
     ...(options || {}),
   });
 }
 
-/** 更新 PUT /api/tag/${param0} */
-export async function updateTag(
+/** update PUT /api/card/${param0} */
+export async function updateCard(
   // 叠加生成的Param类型 (非body参数swagger默认没有生成对象)
-  params: API.updateTagParams,
-  body: API.TagBody,
+  params: API.updateCardParams,
+  body: API.CardRequestBody,
   options?: { [key: string]: any },
 ) {
   const { id: param0, ...queryParams } = params;
-  return request<API.TagResponse>(`/api/tag/${param0}`, {
+  return request<API.CardRequestBody>(`/api/card/${param0}`, {
     method: 'PUT',
     headers: {
       'Content-Type': 'application/json',
@@ -35,26 +37,26 @@ export async function updateTag(
   });
 }
 
-/** 删除 DELETE /api/tag/${param0} */
-export async function deleteTagById(
+/** deleteById DELETE /api/card/${param0} */
+export async function deleteCardById(
   // 叠加生成的Param类型 (非body参数swagger默认没有生成对象)
-  params: API.deleteTagByIdParams,
+  params: API.deleteCardByIdParams,
   options?: { [key: string]: any },
 ) {
   const { id: param0, ...queryParams } = params;
-  return request<Record<string, any>>(`/api/tag/${param0}`, {
+  return request<Record<string, any>>(`/api/card/${param0}`, {
     method: 'DELETE',
     params: { ...queryParams },
     ...(options || {}),
   });
 }
 
-/** 新增 POST /api/tag */
-export async function insertTag(
-  body: API.TagBody,
+/** insert POST /api/card */
+export async function insertCard(
+  body: API.CardRequestBody,
   options?: { [key: string]: any },
 ) {
-  return request<API.TagResponse>('/api/tag', {
+  return request<API.CardResponseBody>('/api/card', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -64,25 +66,17 @@ export async function insertTag(
   });
 }
 
-/** 批量删除 DELETE /api/tag */
-export async function deleteBatchById(
+/** deleteBatchById DELETE /api/card */
+export async function deleteBatchCardById(
   body: string[],
   options?: { [key: string]: any },
 ) {
-  return request<Record<string, any>>('/api/tag', {
+  return request<Record<string, any>>('/api/card', {
     method: 'DELETE',
     headers: {
       'Content-Type': 'application/json',
     },
     data: body,
-    ...(options || {}),
-  });
-}
-
-/** 当前用户标签列表 GET /api/tag/userTagList */
-export async function userTagList(options?: { [key: string]: any }) {
-  return request<API.TagResponse[]>('/api/tag/userTagList', {
-    method: 'GET',
     ...(options || {}),
   });
 }

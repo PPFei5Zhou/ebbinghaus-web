@@ -1,3 +1,4 @@
+import { Select } from 'antd';
 import type {
   MenuDataItem,
   BasicLayoutProps as ProLayoutProps,
@@ -10,7 +11,6 @@ import { userTagList } from '@/services/ebbinghaus-web/tag';
 import { TagOutlined } from '@ant-design/icons';
 
 import './BaseLayout.less';
-import { Select } from 'antd';
 import MenuFooter from '@/layouts/components/MenuFooter';
 
 export type BasicLayoutProps = {
@@ -101,7 +101,6 @@ const BasicLayout: React.FC<BasicLayoutProps> = (props) => {
           !menuItemProps.path ||
           location.pathname === menuItemProps.path
         ) {
-          console.log(menuItemProps.path);
           return defaultDom;
         }
         return <Link to={menuItemProps.path}>{defaultDom}</Link>;
