@@ -80,3 +80,18 @@ export async function deleteBatchCardById(
     ...(options || {}),
   });
 }
+
+/** findAllBy POST /api/card/findAllBy */
+export async function findAllCardBy(
+  body: API.CardRequestBody | any,
+  options?: { [key: string]: any },
+) {
+  return request<API.CardResponseBody[]>('/api/card/findAllBy', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    data: body,
+    ...(options || {}),
+  });
+}

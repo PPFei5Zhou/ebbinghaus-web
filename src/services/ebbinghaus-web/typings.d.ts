@@ -1,9 +1,6 @@
 declare namespace API {
-  type TagBody = {
-    id: string;
-    tagName: string;
-    userId: string;
-    parentId: string;
+  type ContentResponseBody = {
+    content: string;
   };
 
   type CardRequestBody = {
@@ -20,10 +17,6 @@ declare namespace API {
     content: CardContent[];
   };
 
-  type ContentRequestBody = {
-    content: string;
-  };
-
   type TagResponse = {
     tagId: string;
     tagName: string;
@@ -31,8 +24,11 @@ declare namespace API {
     children: 6603544[];
   };
 
-  type ContentResponseBody = {
-    content: string;
+  type CardResponseBody = {
+    id: string;
+    cardName: string;
+    createAt: string;
+    content: ContentResponseBody[];
   };
 
   type Tag = {
@@ -43,27 +39,19 @@ declare namespace API {
     children: 6285385[];
   };
 
-  type CardResponseBody = {
+  type TagBody = {
     id: string;
-    cardName: string;
-    createAt: string;
-    content: ContentResponseBody[];
+    tagName: string;
+    userId: string;
+    parentId: string;
+  };
+
+  type ContentRequestBody = {
+    content: string;
   };
 
   type CardContent = {
     content: string;
-  };
-
-  type findCardByIdParams = {
-    id: string;
-  };
-
-  type updateCardParams = {
-    id: string;
-  };
-
-  type deleteCardByIdParams = {
-    id: string;
   };
 
   type findTagByIdParams = {
@@ -75,6 +63,18 @@ declare namespace API {
   };
 
   type deleteTagByIdParams = {
+    id: string;
+  };
+
+  type findCardByIdParams = {
+    id: string;
+  };
+
+  type updateCardParams = {
+    id: string;
+  };
+
+  type deleteCardByIdParams = {
     id: string;
   };
 }

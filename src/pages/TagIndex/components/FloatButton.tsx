@@ -63,8 +63,8 @@ const FloatButton: React.FC<FloatButtonProps> = (props: FloatButtonProps) => {
         style={{
           textAlign: 'center',
           fontSize: 14,
-          bottom: 10,
-          right: 10,
+          bottom: 35,
+          right: 35,
           position: 'fixed',
         }}
       >

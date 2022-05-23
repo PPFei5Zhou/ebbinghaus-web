@@ -17,137 +17,6 @@
     }
   ],
   "paths": {
-    "/api/card/{id}": {
-      "put": {
-        "summary": "update",
-        "x-apifox-folder": "api/card",
-        "x-apifox-status": "testing",
-        "deprecated": false,
-        "description": "",
-        "operationId": "updateCard",
-        "tags": ["api/card"],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "description": "",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/CardRequestBody"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "成功",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/CardRequestBody"
-                },
-                "examples": {}
-              }
-            }
-          }
-        }
-      },
-      "delete": {
-        "summary": "deleteById",
-        "x-apifox-folder": "api/card",
-        "x-apifox-status": "testing",
-        "deprecated": false,
-        "description": "",
-        "operationId": "deleteCardById",
-        "tags": ["api/card"],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "description": "",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "成功",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "type": "object",
-                  "properties": {}
-                },
-                "examples": {}
-              }
-            }
-          }
-        }
-      },
-      "get": {
-        "summary": "findById",
-        "x-apifox-folder": "api/card",
-        "x-apifox-status": "testing",
-        "deprecated": false,
-        "description": "",
-        "operationId": "findCardById",
-        "tags": ["api/card"],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "description": "",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "成功",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "oneOf": [
-                    {
-                      "type": "string"
-                    },
-                    {
-                      "type": "integer"
-                    },
-                    {
-                      "type": "boolean"
-                    },
-                    {
-                      "type": "array"
-                    },
-                    {
-                      "type": "object"
-                    },
-                    {
-                      "type": "number"
-                    }
-                  ],
-                  "nullable": true
-                },
-                "examples": {}
-              }
-            }
-          }
-        }
-      }
-    },
     "/api/tag/{id}": {
       "put": {
         "summary": "更新",
@@ -260,6 +129,207 @@
         }
       }
     },
+    "/api/tag": {
+      "delete": {
+        "summary": "批量删除",
+        "x-apifox-folder": "api/tag",
+        "x-apifox-status": "testing",
+        "deprecated": false,
+        "description": "",
+        "operationId": "deleteBatchById",
+        "tags": ["api/tag"],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "examples": {}
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "summary": "新增",
+        "x-apifox-folder": "api/tag",
+        "x-apifox-status": "testing",
+        "deprecated": false,
+        "description": "",
+        "operationId": "insertTag",
+        "tags": ["api/tag"],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/TagBody"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TagResponse"
+                },
+                "examples": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/card/{id}": {
+      "delete": {
+        "summary": "deleteById",
+        "x-apifox-folder": "api/card",
+        "x-apifox-status": "testing",
+        "deprecated": false,
+        "description": "",
+        "operationId": "deleteCardById",
+        "tags": ["api/card"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "examples": {}
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "summary": "update",
+        "x-apifox-folder": "api/card",
+        "x-apifox-status": "testing",
+        "deprecated": false,
+        "description": "",
+        "operationId": "updateCard",
+        "tags": ["api/card"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CardRequestBody"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CardRequestBody"
+                },
+                "examples": {}
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "summary": "findById",
+        "x-apifox-folder": "api/card",
+        "x-apifox-status": "testing",
+        "deprecated": false,
+        "description": "",
+        "operationId": "findCardById",
+        "tags": ["api/card"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "oneOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "integer"
+                    },
+                    {
+                      "type": "boolean"
+                    },
+                    {
+                      "type": "array"
+                    },
+                    {
+                      "type": "object"
+                    },
+                    {
+                      "type": "number"
+                    }
+                  ],
+                  "nullable": true
+                },
+                "examples": {}
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/card": {
       "post": {
         "summary": "insert",
@@ -330,76 +400,6 @@
         }
       }
     },
-    "/api/tag": {
-      "post": {
-        "summary": "新增",
-        "x-apifox-folder": "api/tag",
-        "x-apifox-status": "testing",
-        "deprecated": false,
-        "description": "",
-        "operationId": "insertTag",
-        "tags": ["api/tag"],
-        "parameters": [],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/TagBody"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "成功",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/TagResponse"
-                },
-                "examples": {}
-              }
-            }
-          }
-        }
-      },
-      "delete": {
-        "summary": "批量删除",
-        "x-apifox-folder": "api/tag",
-        "x-apifox-status": "testing",
-        "deprecated": false,
-        "description": "",
-        "operationId": "deleteBatchById",
-        "tags": ["api/tag"],
-        "parameters": [],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "成功",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "type": "object",
-                  "properties": {}
-                },
-                "examples": {}
-              }
-            }
-          }
-        }
-      }
-    },
     "/api/tag/userTagList": {
       "get": {
         "summary": "当前用户标签列表",
@@ -427,28 +427,63 @@
           }
         }
       }
+    },
+    "/api/card/findAllBy": {
+      "post": {
+        "summary": "findAllBy",
+        "x-apifox-folder": "api/card",
+        "x-apifox-status": "testing",
+        "deprecated": false,
+        "description": "",
+        "operationId": "findAllCardBy",
+        "tags": ["api/card"],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/CardRequestBody"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/CardResponseBody"
+                  }
+                },
+                "examples": {}
+              }
+            }
+          }
+        }
+      }
     }
   },
   "components": {
     "schemas": {
-      "TagBody": {
+      "ContentResponseBody": {
         "type": "object",
         "properties": {
-          "id": {
-            "type": "string"
-          },
-          "tagName": {
-            "type": "string"
-          },
-          "userId": {
-            "type": "string"
-          },
-          "parentId": {
+          "content": {
             "type": "string"
           }
         },
-        "required": ["id", "tagName", "userId", "parentId"],
-        "x-apifox-folder": "Tag"
+        "required": ["content"],
+        "x-apifox-folder": "Card"
       },
       "CardRequestBody": {
         "type": "object",
@@ -494,16 +529,6 @@
         "required": ["id", "cardName", "createAt", "content"],
         "x-apifox-folder": "Card"
       },
-      "ContentRequestBody": {
-        "type": "object",
-        "properties": {
-          "content": {
-            "type": "string"
-          }
-        },
-        "required": ["content"],
-        "x-apifox-folder": "Card"
-      },
       "TagResponse": {
         "type": "object",
         "properties": {
@@ -530,14 +555,26 @@
         "required": ["tagId", "tagName", "parentId", "children"],
         "x-apifox-folder": "Tag"
       },
-      "ContentResponseBody": {
+      "CardResponseBody": {
         "type": "object",
         "properties": {
-          "content": {
+          "id": {
             "type": "string"
+          },
+          "cardName": {
+            "type": "string"
+          },
+          "createAt": {
+            "type": "string"
+          },
+          "content": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ContentResponseBody"
+            }
           }
         },
-        "required": ["content"],
+        "required": ["id", "cardName", "createAt", "content"],
         "x-apifox-folder": "Card"
       },
       "Tag": {
@@ -567,26 +604,33 @@
         "required": ["tagId", "tagName", "parentId", "children", "userId"],
         "x-apifox-folder": "Tag"
       },
-      "CardResponseBody": {
+      "TagBody": {
         "type": "object",
         "properties": {
           "id": {
             "type": "string"
           },
-          "cardName": {
+          "tagName": {
             "type": "string"
           },
-          "createAt": {
+          "userId": {
             "type": "string"
           },
-          "content": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/ContentResponseBody"
-            }
+          "parentId": {
+            "type": "string"
           }
         },
-        "required": ["id", "cardName", "createAt", "content"],
+        "required": ["id", "tagName", "userId", "parentId"],
+        "x-apifox-folder": "Tag"
+      },
+      "ContentRequestBody": {
+        "type": "object",
+        "properties": {
+          "content": {
+            "type": "string"
+          }
+        },
+        "required": ["content"],
         "x-apifox-folder": "Card"
       },
       "CardContent": {
