@@ -2,6 +2,36 @@
 /* eslint-disable */
 import { request } from 'umi';
 
+/** 新增 POST /api/tag */
+export async function insertTag(
+  body: API.TagBody,
+  options?: { [key: string]: any },
+) {
+  return request<API.TagResponse>('/api/tag', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    data: body,
+    ...(options || {}),
+  });
+}
+
+/** 批量删除 DELETE /api/tag */
+export async function deleteBatchById(
+  body: string[],
+  options?: { [key: string]: any },
+) {
+  return request<Record<string, any>>('/api/tag', {
+    method: 'DELETE',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    data: body,
+    ...(options || {}),
+  });
+}
+
 /** 查询标签 GET /api/tag/${param0} */
 export async function findTagById(
   // 叠加生成的Param类型 (非body参数swagger默认没有生成对象)
@@ -45,36 +75,6 @@ export async function deleteTagById(
   return request<Record<string, any>>(`/api/tag/${param0}`, {
     method: 'DELETE',
     params: { ...queryParams },
-    ...(options || {}),
-  });
-}
-
-/** 新增 POST /api/tag */
-export async function insertTag(
-  body: API.TagBody,
-  options?: { [key: string]: any },
-) {
-  return request<API.TagResponse>('/api/tag', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    data: body,
-    ...(options || {}),
-  });
-}
-
-/** 批量删除 DELETE /api/tag */
-export async function deleteBatchById(
-  body: string[],
-  options?: { [key: string]: any },
-) {
-  return request<Record<string, any>>('/api/tag', {
-    method: 'DELETE',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    data: body,
     ...(options || {}),
   });
 }

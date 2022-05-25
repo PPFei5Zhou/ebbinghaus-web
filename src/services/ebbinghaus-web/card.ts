@@ -51,6 +51,21 @@ export async function deleteCardById(
   });
 }
 
+/** findAllBy POST /api/card/findAllBy */
+export async function findAllCardBy(
+  body: API.CardRequestBody | any,
+  options?: { [key: string]: any },
+) {
+  return request<API.CardResponseBody[]>('/api/card/findAllBy', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    data: body,
+    ...(options || {}),
+  });
+}
+
 /** insert POST /api/card */
 export async function insertCard(
   body: API.CardRequestBody,
@@ -73,21 +88,6 @@ export async function deleteBatchCardById(
 ) {
   return request<Record<string, any>>('/api/card', {
     method: 'DELETE',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    data: body,
-    ...(options || {}),
-  });
-}
-
-/** findAllBy POST /api/card/findAllBy */
-export async function findAllCardBy(
-  body: API.CardRequestBody | any,
-  options?: { [key: string]: any },
-) {
-  return request<API.CardResponseBody[]>('/api/card/findAllBy', {
-    method: 'POST',
     headers: {
       'Content-Type': 'application/json',
     },

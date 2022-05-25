@@ -1,12 +1,13 @@
 import { Radio, PageHeader } from 'antd';
-import { useRequest, useParams } from 'umi';
 import React, { useState } from 'react';
-import { findTagById } from '@/services/ebbinghaus-web/tag';
 
-const TagPageHeader: React.FC = () => {
-  const params = useParams();
-  const param = params as unknown as { id: string };
-  const { data } = useRequest(() => findTagById({ id: param.id }));
+export type TagPageHeaderProps = {
+  tag: API.TagResponse | undefined;
+};
+
+const TagPageHeader: React.FC<TagPageHeaderProps> = (
+  props: TagPageHeaderProps,
+) => {
   const [radioValue, setRadioValue] = useState();
 
   const radioGroupOnChange = (e: any) => {
@@ -16,7 +17,7 @@ const TagPageHeader: React.FC = () => {
   return (
     <PageHeader
       className="site-page-header"
-      title={data?.tagName}
+      title={props.tag?.tagName}
       extra={[
         <Radio.Group
           key={'button_group'}

@@ -1,4 +1,3 @@
-import { findAllCardBy } from '@/services/ebbinghaus-web/card';
 import { Row, Col, List, Card } from 'antd';
 import React from 'react';
 

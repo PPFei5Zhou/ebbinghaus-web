@@ -1,11 +1,12 @@
 declare namespace API {
-  type ContentResponseBody = {
+  type CardContent = {
     content: string;
   };
 
   type CardRequestBody = {
     id: string;
     cardName: string;
+    tagId: string;
     createAt: string;
     content: ContentRequestBody[];
   };
@@ -24,6 +25,21 @@ declare namespace API {
     children: 6603544[];
   };
 
+  type ContentRequestBody = {
+    content: string;
+  };
+
+  type ContentResponseBody = {
+    content: string;
+  };
+
+  type TagBody = {
+    id: string;
+    tagName: string;
+    userId: string;
+    parentId: string;
+  };
+
   type CardResponseBody = {
     id: string;
     cardName: string;
@@ -37,21 +53,6 @@ declare namespace API {
     parentId: string;
     userId: string;
     children: 6285385[];
-  };
-
-  type TagBody = {
-    id: string;
-    tagName: string;
-    userId: string;
-    parentId: string;
-  };
-
-  type ContentRequestBody = {
-    content: string;
-  };
-
-  type CardContent = {
-    content: string;
   };
 
   type findTagByIdParams = {
