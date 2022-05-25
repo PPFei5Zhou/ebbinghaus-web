@@ -17,7 +17,7 @@ const TagIndex: React.FC = () => {
   useEffect(() => {
     fetchTagInfo();
     fetchCardList();
-  }, []);
+  }, [params]);
 
   const fetchTagInfo = () => {
     findTagById({ id: param.id })
@@ -31,7 +31,7 @@ const TagIndex: React.FC = () => {
 
   const fetchCardList = () => {
     findAllCardBy({
-      tag_id: param.id,
+      tagId: param.id,
     })
       .then((value) => {
         setDataSource(value);

@@ -2,12 +2,15 @@ import { Button, Modal, Input } from 'antd';
 import React, { useState } from 'react';
 import { PlusOutlined } from '@ant-design/icons';
 import { insertCard } from '@/services/ebbinghaus-web/card';
+import { useParams } from 'umi';
 
 export type FloatButtonProps = {
   onReload: () => void;
 };
 
 const FloatButton: React.FC<FloatButtonProps> = (props: FloatButtonProps) => {
+  const params = useParams();
+  const param = params as unknown as { id: string };
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [inputCardName, setInputCardName] = useState('');
   const [inputContent, setInputContent] = useState('');
@@ -17,6 +20,7 @@ const FloatButton: React.FC<FloatButtonProps> = (props: FloatButtonProps) => {
     insertCard({
       id: '',
       cardName: inputCardName,
+      tagId: param.id,
       createAt: '',
       content: [
         {
